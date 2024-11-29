@@ -2,6 +2,7 @@ import { CanActivateFn, CanActivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AutenticacionService } from '../autenticacion.service';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root' //indicandole que el servicio va a ser global
 })
