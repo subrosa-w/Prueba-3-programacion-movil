@@ -42,7 +42,9 @@ export class LoginPage implements OnInit {
   }
 
   
-  validarUsuario() {
+  validarUsuario(event: Event) {
+    event.preventDefault();
+
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.usuario1
