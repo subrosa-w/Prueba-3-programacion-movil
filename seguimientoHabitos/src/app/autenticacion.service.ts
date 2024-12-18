@@ -26,4 +26,10 @@ export class AutenticacionService {
     cerrarSesion(){
         this.usuarioLogeado = false;
     }
+
+    // Método de autenticación que devuelve true si las credenciales son correctas
+    //explica lo del triple igial y pregunta dirijida &&
+    authenticate(username: string, password: string): boolean {
+        return username === 'usuario' && password === 'contraseña';//////
+    }
 }

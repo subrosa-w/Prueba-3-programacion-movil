@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AutenticacionService } from '../autenticacion.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';///?
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { AutenticacionService } from '../autenticacion.service';
 })
 export class LoginPage implements OnInit {
 
+  loginForm: FormGroup; // Formulario reactivo para usuario y contraseña
+  loginMessage: string = ''; // Mensaje que muestra el resultado del login
   
   usuario1: string = '';
   contrasena1: string = '';
@@ -24,10 +27,16 @@ export class LoginPage implements OnInit {
   logueado: boolean = false;
 
   constructor(
-    private authService: AutenticacionService,
+    private autenticacionService: AutenticacionService,
     private router: Router,
-    private alertController: AlertController
-  ) { }
+    private formBuilder: FormBuilder,
+    private alertController: AlertController 
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+   }
 
   ngOnInit() {}
 
@@ -63,7 +72,7 @@ export class LoginPage implements OnInit {
       return;
     }
     this.presentAlert('Éxito', 'Usted ha accedido exitosamente.');
-    this.authService.iniciarSesion();
+    this.autenticacionService.iniciarSesion();
     this.logueado = true; 
     this.router.navigate(['/inicio'], navigationExtras);
   }
@@ -75,6 +84,21 @@ export class LoginPage implements OnInit {
     const container = document.querySelector('.container') as HTMLElement;
     container?.classList.remove('sign-up-mode');
   }
+
+//----------------------------------------------
+///como { username: 'valor', password: 'valor' }
+  // Método que se llama al presionar el botón de "Iniciar sesión"
+  onLogin() {
+    const { username, password } = this.loginForm.value;//campos y valores ungresados
+    // Validación de las credenciales usando el servicio de autenticación
+    if (this.autenticacionService.authenticate(username, password))
+    {//devuelve un true si authe.
+      this.loginMessage = '¡Inicio de sesión exitoso!';
+    } else {
+      this.loginMessage = 'Usuario o contraseña incorrectos';
+    }
+  }
+
 }
 
 
