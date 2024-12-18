@@ -1,27 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <!-- Formulario Sign In -->
+      <form action="#" class="sign-in-form">
+        <h2 class="title">Sign in</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Ingrese su usuario. Ej: subrosa" />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Ingrese su contraseña." />
+        </div>
 
-<ion-content>
+        <input type="submit" value="Login" class="btn solid" />
+        <p class="social-text">Or Sign in with social platforms</p>
 
+      </form>
 
-  <ion-item>
-    <ion-input label="Usuario" label-placement="floating" type="text" placeholder="Ingrese su usuario. Ej: subrosa" [(ngModel)]="usuario1"></ion-input>
-  </ion-item>
+    </div>
+  </div>
 
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>Cada una de nosotras debe trabajar para su propia mejora.</h3>       
+      </div>
+      
+    </div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3>One of us?</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <button class="btn transparent" id="sign-in-btn">Sign in</button>
+      </div>
 
-  <ion-item>
-    <ion-input label="Contraseña" label-placement="floating" type="password" placeholder="Ingrese su contraseña." [(ngModel)]="contrasena1"></ion-input>
-  </ion-item>
+    </div>
+  </div>
+</div>
 
-
-  <br>
-
-  <ion-item>
-    <ion-button class="color" (click)="validarUsuario()">
-    <ion-icon slot="start" name="log-in-outline"></ion-icon>Acceder</ion-button>
-  </ion-item>
-  
-</ion-content>
