@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { AutenticacionService } from '../autenticacion.service';
+import { AutenticacionService } from '../auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';///?
 
 @Component({
@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
   logueado: boolean = false;
 
   constructor(
-    private autenticacionService: AutenticacionService,
+    private authService: AutenticacionService,
     private router: Router,
     private formBuilder: FormBuilder,
     private alertController: AlertController 
@@ -72,7 +72,7 @@ export class LoginPage implements OnInit {
       return;
     }
     this.presentAlert('Éxito', 'Usted ha accedido exitosamente.');
-    this.autenticacionService.iniciarSesion();
+    this.authService.iniciarSesion();
     this.logueado = true; 
     this.router.navigate(['/inicio'], navigationExtras);
   }
@@ -91,7 +91,7 @@ export class LoginPage implements OnInit {
   onLogin() {
     const { username, password } = this.loginForm.value;//campos y valores ungresados
     // Validación de las credenciales usando el servicio de autenticación
-    if (this.autenticacionService.authenticate(username, password))
+    if (this.authService.authenticate(username, password))
     {//devuelve un true si authe.
       this.loginMessage = '¡Inicio de sesión exitoso!';
     } else {

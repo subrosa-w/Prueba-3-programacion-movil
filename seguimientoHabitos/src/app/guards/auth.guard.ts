@@ -1,24 +1,26 @@
-import { CanActivateFn, CanActivate } from '@angular/router';
+// src/app/guards/auth.guard.ts
+
 import { Injectable } from '@angular/core';
-import { AutenticacionService } from '../autenticacion.service';
-import { Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { AutenticacionService } from '../auth.service';
+
 @Injectable({
-  providedIn: 'root' //indicandole que el servicio va a ser global
+  providedIn: 'root', // El guard será proporcionado de forma global
 })
-
 export class AutenticacionGuard implements CanActivate {
+  
+  constructor(private authService: AutenticacionService, private router: Router) {}
 
-  constructor(private authService: AutenticacionService, private router: Router){}
-
-  // Metodo que descide si se puede acceder a la ruta
-  canActivate(): boolean{
-
-    if(this.authService.estaLogeado()){
-      return true;
-    }else{
-      this.router.navigate(['/login']);
-      return false;
+  // Método que decide si se puede acceder a la ruta
+  canActivate(
+    route: ActivatedRouteSnapshot,  // Parámetro que contiene información sobre la ruta activada
+    state: RouterStateSnapshot      // Parámetro que contiene el estado de la ruta
+  ): boolean {
+    if (this.authService.estaLogeado()) {
+      return true;  // Permite el acceso si está logueado
+    } else {
+      this.router.navigate(['/login']);  // Redirige a login si no está logueado
+      return false;  // No permite el acceso
     }
-
   }
 }

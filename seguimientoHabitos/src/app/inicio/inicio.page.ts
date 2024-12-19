@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { AutenticacionService } from '../autenticacion.service';
+import { AutenticacionService } from '../auth.service';
 
 @Component({
   selector: 'app-inicio',
