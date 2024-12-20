@@ -20,7 +20,8 @@ export class LoginPage implements OnInit {
   
   usuarios = [
     { usuario: 'Subrosa', contrasena: 'Subrosa1234@' },
-    { usuario: 'Mooncake', contrasena: 'Mooncake1234@' }
+    { usuario: 'Mooncake', contrasena: 'Mooncake1234@' },
+    { usuario: '1234', contrasena: '1234' }
   ];
 
   

@@ -1,12 +1,16 @@
 
 <div class="ion-page" id="main-content">
   <!-- header -->
-  <ion-header [translucent]="true">
-    <ion-toolbar>
+  <ion-header [translucent]="true" color="danger">
+    <ion-toolbar style="--background: #5995fd; --color: #ffffff;">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Bienvenido {{ usuario }}</ion-title>
+      <ion-title >
+         Bienvenido {{ usuario }}
+        <!-- Añadir logo después del título -->
+        <img src="../../assets/ejercicio.png" alt="Logo" style="height: 40px; margin-left: 10px;">
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -94,32 +98,22 @@
     </ion-list>
   </ion-content>
 
-    <ion-tab-bar slot="bottom">
-  
-      <ion-tab-button >
-        <ion-icon name="home" (click)="menuPrincipal()"></ion-icon>
-        Inicio
-      </ion-tab-button>
-  
-  
-      <ion-tab-button>
-        <ion-icon name="barbell" (click)="menuHabitos()"></ion-icon>
-        Habitos
-      </ion-tab-button>
-  
-
-      <ion-tab-button>
-        <ion-icon name="create-outline" (click)="menuActividad()"></ion-icon>
-        Sugerencias
-      </ion-tab-button>
-  
-  
-      <ion-tab-button>
-        <ion-icon name="exit" (click)="cerrarSesion()"></ion-icon>
-        Cerrar sesion
-      </ion-tab-button>
-  
-  
-    </ion-tab-bar>
-
+  <ion-tab-bar slot="bottom" style="--background: #5995fd; --color: #ffffff;">
+    <ion-tab-button>
+      <ion-icon name="home" (click)="menuPrincipal()"></ion-icon>
+      Inicio
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon name="barbell" (click)="menuHabitos()"></ion-icon>
+      Hábitos
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon name="create-outline" (click)="menuActividad()"></ion-icon>
+      Sugerencias
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon name="exit" (click)="cerrarSesion()"></ion-icon>
+      Cerrar sesión
+    </ion-tab-button>
+  </ion-tab-bar>
 </div>

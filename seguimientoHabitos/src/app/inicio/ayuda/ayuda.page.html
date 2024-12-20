@@ -1,7 +1,9 @@
 <!-- src/app/feedback/feedback.page.html -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Sugerencias</ion-title>
+  <ion-toolbar style="--background: #5995fd; --color: #ffffff;">
+    <ion-title style="--background: #4481eb" >Sugerencias       
+        <img src="../../assets/ejercicio.png" alt="Logo" style="height: 40px; margin-left: 10px;">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,7 +26,7 @@
   <ion-button expand="full" (click)="enviarSugerencia()">Enviar Sugerencia</ion-button>
 </ion-content>
 
-<ion-tab-bar slot="bottom">
+<ion-tab-bar slot="bottom" style="--background: #5995fd; --color: #ffffff;">
   
   <ion-tab-button >
     <ion-icon name="home" (click)="menuPrincipal()"></ion-icon>
