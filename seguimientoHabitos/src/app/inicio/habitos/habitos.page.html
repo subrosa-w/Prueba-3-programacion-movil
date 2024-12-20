@@ -21,9 +21,9 @@
       <ion-input [(ngModel)]="nombreUsuario"></ion-input>
     </ion-item>
 
-    <ion-button (click)="agregarUsuario()">Guardar</ion-button>
+    <ion-button (click)="agregarUsuario()" style="--background: #5995fd; " >Guardar</ion-button>
 
-    <ion-button (click)="limpiarDatos()">Limpiar</ion-button>
+    <ion-button (click)="limpiarDatos()" style="--background: #5995fd; ">Limpiar</ion-button>
 
     <ion-list>
       <!-- var = deprecated // let -->
@@ -68,8 +68,8 @@
 
 <!-- botón + -->
 <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="toolbar-fixed">
-  <ion-fab-button>
-    <ion-icon name="add"></ion-icon>
+  <ion-fab-button style="--background: #5995fd; ">
+    <ion-icon name="add" ></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
